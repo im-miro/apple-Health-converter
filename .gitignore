@@ -1,0 +1,4 @@
+extracted/apple_health_export/workout-routes/*
+extracted/apple_health_export/*.xml
+*.zip
+*.pdf
