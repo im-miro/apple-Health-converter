@@ -26,7 +26,7 @@ Apple 端末からエクスポートした `export.zip`（Health データ）を
 ### 1. 必要な準備
 
 - Go 1.20 以上がインストールされていること
-- Apple ヘルスケアアプリから `export.zip` をエクスポートしておく（例: `書き出したデータ.zip`）
+- Apple ヘルスケアアプリから `export.zip` をエクスポートしておく（例: `書き出したデータ.zip or export.zip等`）
 
 ### 2. 一括実行コマンド
 
@@ -37,7 +37,7 @@ sh run_all.sh <zipファイル> <集計月数 (1〜6)>
 ### 例:
 
 ```bash
-sh run_all.sh 書き出したデータ.zip 3
+sh run_all.sh export.zip 3
 ```
 
 処理が完了すると、以下のファイルが出力されます：
