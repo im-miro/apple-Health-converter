@@ -21,12 +21,9 @@ case "$MONTHS" in
   *) echo "❌ 集計月数は 1〜6 の整数で指定してください"; exit 1 ;;
 esac
 
-# ステップ1: main.go 実行（PDF + データ表作成）
-echo "📄 main.go を実行中..."
-if ! go run main.go "$ZIP_FILE" "$MONTHS"; then
-  echo "❌ main.go の実行に失敗しました"
-  exit 1
-fi
+# ステップ1: generate_report.go 実行（PDF + データ表作成）
+echo "📄 generate_report.go を実行中..."
+go run generate_report.go "$ZIP_FILE" "$MONTHS"
 
 # ステップ2: グラフ生成
 for file in generate_sleep_chart.go generate_bodymass_chart.go generate_bmi_chart.go generate_bodyfat_chart.go; do
