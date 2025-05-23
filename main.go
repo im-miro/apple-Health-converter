@@ -75,7 +75,6 @@ func main() {
 		count int
 	}
 	stats := map[string]map[string]stat{}
-
 	sleepTotals := map[string]float64{}
 
 	for _, rec := range root.Records {
@@ -121,6 +120,8 @@ func main() {
 		stats[date][label] = s
 	}
 
+	var sleepDates []string
+	var sleepValues []float64
 	for date, total := range sleepTotals {
 		if total < 1.0 {
 			continue
@@ -129,6 +130,8 @@ func main() {
 			stats[date] = map[string]stat{}
 		}
 		stats[date]["SleepHours"] = stat{sum: total, count: 1}
+		sleepDates = append(sleepDates, date)
+		sleepValues = append(sleepValues, total)
 	}
 
 	var dates []string
@@ -176,6 +179,13 @@ func main() {
 		}
 		pdf.Ln(-1)
 		fill = !fill
+	}
+
+	// グラフ画像が存在すればPDFに追加
+	graphPath := "sleep_chart.png"
+	if _, err := os.Stat(graphPath); err == nil {
+		pdf.AddPage()
+		pdf.ImageOptions(graphPath, 10, 20, 270, 0, false, gofpdf.ImageOptions{ImageType: "PNG", ReadDpi: true}, 0, "")
 	}
 
 	if err := pdf.OutputFileAndClose("health_report.pdf"); err != nil {
