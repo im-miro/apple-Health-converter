@@ -15,7 +15,7 @@ Apple 端末からエクスポートした `export.zip`（Health データ）を
 | `generate_bodymass_chart.go` | 体重の推移グラフを出力（PNG）               |
 | `generate_bmi_chart.go`      | BMI の推移グラフを出力（PNG）               |
 | `generate_bodyfat_chart.go`  | 体脂肪率の推移グラフを出力（PNG）           |
-| `append_graphs_to_pdf.go`    | 生成されたグラフ画像を PDF に追加統合       |
+| `append_graphs_to_pdf.go`    | 生成されたグラフ画像を PDF に出力           |
 | `run_all.sh`                 | 上記処理を一括実行するシェルスクリプト      |
 | `ipaexg.ttf`                 | PDF 内で日本語表示を行うためのフォント      |
 
@@ -58,7 +58,7 @@ sh run_all.sh export.zip 3
   - 体脂肪率 (%)
   - 睡眠時間 (h)
 
-### グラフ画像（PDF 末尾に追加）
+### グラフ画像（PDF を別で生成）
 
 - 睡眠時間推移
 - 体重推移
