@@ -3,3 +3,4 @@ extracted/apple_health_export/*.xml
 *.zip
 *.pdf
 sleep_chart.png
+bodymass_chart.png
